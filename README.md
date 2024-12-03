@@ -15,7 +15,7 @@ This library offers tools to handle and visualize graphs in the ROOT framework. 
 
 ---
 
-## Graph Plotting Tool: `stampaGraph`
+__Graph Plotting Tool__: `stampaGraph`
 
 ### Features
 `stampaGraph` is a versatile function that supports:
