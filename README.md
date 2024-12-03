@@ -68,40 +68,40 @@ stampaGraph(graph, "destination.png", "Title", "X-axis", "Y-axis", "Option", box
 stampaGraph(graph, "destination.png", "Title", "X-axis", "Y-axis", "Option", "x", extremes, lineCoords, kRed, 2, legendCoords, "Legend Title", "TR", legendEntries);
 ```
 ## Utility Library: `moraRoot.h`
-Features
+### Features
 This header file provides utility functions for:
-
-Scientific Notation
-cpp
-Copia codice
+ - Scientific Notation
+```cpp
 ScientificNotation Exponential(double n);
-Mean Calculation
-cpp
-Copia codice
+```
+ - Mean Calculation
+```cpp
 double mean(vector<double> data);
-Min/Max Calculation
-cpp
-Copia codice
+```
+ - Min/Max Calculation
+```cpp
 template<typename T> T Min(const vector<T>& v);
 template<typename T> T Max(const vector<T>& v);
-ROOT Object Import
-cpp
-Copia codice
+```
+ - ROOT Object Import
+```cpp
 template<typename T> T import_Tobject(const string& fileNameROOT, const string& ObjectName);
-Histogram Creation
-cpp
-Copia codice
+```
+ - Histogram Creation
+```cpp
 template<typename T, typename Q>
 T FillHist(vector<Q> data, int nbin, const string& histoName, bool Normalization = true);
-Fit Handling
-cpp
-Copia codice
+```
+ - Fit Handling
+```cpp
 template<typename T>
 void fit(T* point, TF1* function, int n_parameters, const string& Option, int precision, double min = nan(double), double max = nan(double), bool covMat = true);
-Best Fit Extremes
-cpp
-Copia codice
+```
+ - Best Fit Extremes
+```cpp
 pair<double, double> best_fit_extremes(TH1D h, double increments_sx, double increments_dx, pair<double, double> initial_extremes);
+```
+
 ROOT Dependencies
 This library requires ROOT classes such as:
 
