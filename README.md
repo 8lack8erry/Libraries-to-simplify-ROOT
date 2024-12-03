@@ -30,50 +30,44 @@ This library offers tools to handle and visualize graphs in the ROOT framework. 
 stampaGraph(graph, "destination.png", "Title", "X-axis", "Y-axis", "Graphic Options", Additional Parameters...);
 ```
 ### Examples
-Single or Multiple Graphs
-
-cpp
-Copia codice
+ - Single or Multiple Graphs
+```cpp
 TGraph graph1;
 TGraphErrors graph2;
 stampaGraph(graph1, graph2, "destination.png", "Title", "X-axis", "Y-axis", {"Option1", "Option2"});
-Log Scales
-
-cpp
-Copia codice
+```
+ - Log Scales
+```cpp
 stampaGraph(graph, "destination.png", "Title", "X-axis", "Y-axis", "Option", "x");
-Set Axis Range
-
-cpp
+```
+ - Set Axis Range
+``` cpp
 Copia codice
 vector<double> extremes = {xmin, xmax, ymin, ymax};
 stampaGraph(graph, "destination.png", "Title", "X-axis", "Y-axis", "Option", "x", extremes);
-Add Lines
-
-cpp
-Copia codice
+```
+ - Add Lines
+```cpp
 vector<double> lineCoords = {x1, y1, x2, y2};
 stampaGraph(graph, "destination.png", "Title", "X-axis", "Y-axis", "Option", lineCoords, kRed, 2);
-Legends
-
-cpp
-Copia codice
+```
+ - Legends
+```cpp
 vector<double> legendCoords = {x1, y1, x2, y2};
 vector<string> legendEntries = {"Dataset 1", "Dataset 2"};
 stampaGraph(graph, "destination.png", "Title", "X-axis", "Y-axis", "Option", legendCoords, "Legend Title", "TR", legendEntries);
-Boxes
-
-cpp
-Copia codice
+```
+ - Boxes
+```cpp
 vector<double> boxCoords = {x1, y1, x2, y2};
 vector<string> boxEntries = {"Box 1", "Box 2"};
 stampaGraph(graph, "destination.png", "Title", "X-axis", "Y-axis", "Option", boxCoords, boxEntries);
-Advanced Combination
-
-cpp
-Copia codice
+```
+ - Advanced Combination
+```cpp
 stampaGraph(graph, "destination.png", "Title", "X-axis", "Y-axis", "Option", "x", extremes, lineCoords, kRed, 2, legendCoords, "Legend Title", "TR", legendEntries);
-Utility Library: moraRoot.h
+```
+## Utility Library: `moraRoot.h`
 Features
 This header file provides utility functions for:
 
