@@ -36,13 +36,18 @@ TGraph graph1;
 TGraphErrors graph2;
 stampaGraph(graph1, graph2, "destination.png", "Title", "X-axis", "Y-axis", {"Option1", "Option2"});
 ```
+Where `{"Option1", "Option2"}` are the graphic options for the graphs, for exaple `APL`. 
  - #### Log Scales
+You have to choose the axes in which you want the log scale the possible options are:
+    - `x` for the x-axes;
+    - `y` for the y-axes;
+    - `xy` for both;
+For example:
 ```cpp
 stampaGraph(graph, "destination.png", "Title", "X-axis", "Y-axis", "Option", "x");
 ```
  - #### Set Axis Range
 ``` cpp
-Copia codice
 vector<double> extremes = {xmin, xmax, ymin, ymax};
 stampaGraph(graph, "destination.png", "Title", "X-axis", "Y-axis", "Option", "x", extremes);
 ```
