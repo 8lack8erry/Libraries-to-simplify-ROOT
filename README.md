@@ -57,26 +57,28 @@ vector<double> extremes = {xmin, xmax};
 stampaGraph(graph, "destination.png", "Title", "X-axis", "Y-axis", "Option", "x", extremes);
 ```
 #### Add Lines
-
+You can define the coordinates of the line, the color and the width.
 ```cpp
 vector<double> lineCoords = {x1, y1, x2, y2};
 stampaGraph(graph, "destination.png", "Title", "X-axis", "Y-axis", "Option", lineCoords, kRed, 2);
 ```
- - #### Legends
+#### Legends
+You can define the coordinates and the entries of the legend. You can define also the title and the legend's graphical options.
 ```cpp
 vector<double> legendCoords = {x1, y1, x2, y2};
 vector<string> legendEntries = {"Dataset 1", "Dataset 2"};
 stampaGraph(graph, "destination.png", "Title", "X-axis", "Y-axis", "Option", legendCoords, "Legend Title", "Legend Option", legendEntries);
 ```
- - #### Boxes
+#### Boxes
+ You can define the coordinates and the entries of the box.
 ```cpp
 vector<double> boxCoords = {x1, y1, x2, y2};
 vector<string> boxEntries = {"Box 1", "Box 2"};
 stampaGraph(graph, "destination.png", "Title", "X-axis", "Y-axis", "Option", boxCoords, boxEntries);
 ```
- - #### Advanced Combination
+#### Advanced Combination
 ```cpp
-stampaGraph(graph, "destination.png", "Title", "X-axis", "Y-axis", "Option", "x", extremes, lineCoords, kRed, 2, legendCoords, "Legend Title", "TR", legendEntries);
+stampaGraph(graph, "destination.png", "Title", "X-axis", "Y-axis", "Option", "x", extremes, lineCoords, kRed, 2, legendCoords, "Legend Title", "Legend Option", legendEntries);
 ```
 
 ---
