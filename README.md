@@ -15,10 +15,9 @@ This library offers tools to handle and visualize graphs in the ROOT framework. 
 
 ---
 
-## Graph Plotting Tool:
-`stampaGraph`
+## Graph Plotting Tool: `stampaGraph`
 
-#### Features
+### Features
 `stampaGraph` is a versatile function that supports:
 - Plotting one or multiple graphs (`TGraph`, `TH1F`, `TGraphErrors`, etc.).
 - Applying log scales (`x`, `y`, or `xy`).
@@ -26,11 +25,11 @@ This library offers tools to handle and visualize graphs in the ROOT framework. 
 - Adding lines (`TLine`) or customizable boxes.
 - Automatic or manual legend placement.
 
-#### General Syntax
+### General Syntax
 ```cpp
 stampaGraph(graph, "destination.png", "Title", "X-axis", "Y-axis", "Graphic Options", Additional Parameters...);
-
-#### Examples
+```
+### Examples
 Single or Multiple Graphs
 
 cpp
