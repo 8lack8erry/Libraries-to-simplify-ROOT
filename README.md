@@ -4,19 +4,20 @@ I usually perform data analysis in ROOT, which I find very useful but sometimes 
 # Graphing and Utility Tools
 This library provides tools to handle and visualize graphs using ROOT framework. It includes methods for plotting various graph types, applying graphical options, and analyzing data with utility functions.
 
-## Graph Plotting Tool: '''stampaGraph'''
+**Graph Plotting Tool:** 'stampaGraph'
 ### Overview
 stampaGraph is a versatile graphing function that supports multiple features:
 
-Plotting 1 or multiple graphs of different types.
-Applying log scales.
-Setting axis ranges.
-Adding lines (TLine) or boxes to the plot.
-Configuring legends (automatic or manual).
-General Syntax
-cpp
-Copia codice
+    - Plotting 1 or multiple graphs of different types.
+    - Applying log scales.
+    - Setting axis ranges.
+    - Adding lines (TLine) or boxes to the plot.
+    - Configuring legends (automatic or manual).
+
+### General Syntax
+'''
 stampaGraph(graph, "destination.png", "Title", "X", "Y", "Graphic Options", Additional Parameters...);
+'''
 Supported Features
 Single or Multiple Graphs
 
