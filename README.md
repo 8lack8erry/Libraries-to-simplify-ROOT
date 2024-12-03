@@ -152,6 +152,8 @@ int main() {
 }
 ```
 
+---
+
 ## Graph Plotting and Fitting Tool: `stampaGraph_Fit`
 ### Features
 The `stampaGraph_Fit` function extends the functionality of the `stampaGraph` tool by integrating fitting capabilities with detailed graphical customization and automatic annotation. It simplifies the process of visualizing and analyzing fitted data in ROOT.
