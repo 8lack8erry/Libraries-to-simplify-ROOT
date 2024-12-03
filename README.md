@@ -37,13 +37,6 @@ stampaGraph(
             Additional Parameters...
 );
 ```
-#### Parameters
- - `T *point`: Pointer to the graph to be plotted.
- - `const string & destinationPNG`: Path and filename to save the output image.
- - `const string & graphName`: Title of the graph.
- - `const string & XaxisName`: Label for the x-axis.
- - `const string & YaxisName`: Label for the y-axis.
- - `const string & GraphicOption`: ROOT graphical option string (e.g., `APL`, `HIST`).
 
 ### Examples
 #### Single or Multiple Graphs
