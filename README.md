@@ -27,8 +27,24 @@ This library offers tools to handle and visualize graphs in the ROOT framework. 
 
 ### General Syntax
 ```cpp
-stampaGraph(graph, "destination.png", "Title", "X-axis", "Y-axis", "Graphic Options", Additional Parameters...);
+stampaGraph(
+            graph,
+            "destination.png",
+            "Title",
+            "X-axis",
+            "Y-axis",
+            "Graphic Options",
+            Additional Parameters...
+);
 ```
+#### Parameters
+ - `T *point`: Pointer to the graph to be plotted.
+ - `const string & destinationPNG`: Path and filename to save the output image.
+ - `const string & graphName`: Title of the graph.
+ - `const string & XaxisName`: Label for the x-axis.
+ - `const string & YaxisName`: Label for the y-axis.
+ - `const string & GraphicOption`: ROOT graphical option string (e.g., `APL`, `HIST`).
+
 ### Examples
 #### Single or Multiple Graphs
 ```cpp
@@ -195,7 +211,7 @@ void stampaGraph_Fit(
  - `const string & graphName`: Title of the graph.
  - `const string & XaxisName`: Label for the x-axis.
  - `const string & YaxisName`: Label for the y-axis.
- - `const string & GraphicOption`: ROOT graphical option string (e.g., "APL", "HIST").
+ - `const string & GraphicOption`: ROOT graphical option string (e.g., `APL`, `HIST`).
  - `double min, double max`: (Optional) Fit range. If nan, fits the entire graph.
  - `int n_parameters`: Number of parameters in the fit function.
  - `vector<double> PaveCoordinates`: Coordinates of the annotation box in NDC (`{x1, y1, x2, y2}`).
