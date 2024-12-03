@@ -57,6 +57,7 @@ vector<double> extremes = {xmin, xmax};
 stampaGraph(graph, "destination.png", "Title", "X-axis", "Y-axis", "Option", "x", extremes);
 ```
 #### Add Lines
+
 ```cpp
 vector<double> lineCoords = {x1, y1, x2, y2};
 stampaGraph(graph, "destination.png", "Title", "X-axis", "Y-axis", "Option", lineCoords, kRed, 2);
@@ -65,7 +66,7 @@ stampaGraph(graph, "destination.png", "Title", "X-axis", "Y-axis", "Option", lin
 ```cpp
 vector<double> legendCoords = {x1, y1, x2, y2};
 vector<string> legendEntries = {"Dataset 1", "Dataset 2"};
-stampaGraph(graph, "destination.png", "Title", "X-axis", "Y-axis", "Option", legendCoords, "Legend Title", "TR", legendEntries);
+stampaGraph(graph, "destination.png", "Title", "X-axis", "Y-axis", "Option", legendCoords, "Legend Title", "Legend Option", legendEntries);
 ```
  - #### Boxes
 ```cpp
@@ -77,7 +78,11 @@ stampaGraph(graph, "destination.png", "Title", "X-axis", "Y-axis", "Option", box
 ```cpp
 stampaGraph(graph, "destination.png", "Title", "X-axis", "Y-axis", "Option", "x", extremes, lineCoords, kRed, 2, legendCoords, "Legend Title", "TR", legendEntries);
 ```
+
+---
+
 ## Utility Library: `moraRoot.h`
+
 ### Features
 This header file provides utility functions for:
  - #### Scientific Notation
