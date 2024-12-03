@@ -38,7 +38,7 @@ stampaGraph(graph1, graph2, "destination.png", "Title", "X-axis", "Y-axis", {"Op
 ```
 Here `{"Option1", "Option2"}` are the graphical options for the graphs, for exaple `APL`. 
 #### Log Scales
-You need to choose which axes should use a logarithmic scale. The available options are:
+Specify which axes should use a logarithmic scale:
  - `x` for the x-axis;
  - `y` for the y-axis;
  - `xy` for both axes;
@@ -47,30 +47,30 @@ For example:
 stampaGraph(graph, "destination.png", "Title", "X-axis", "Y-axis", "Option", "x");
 ```
 #### Set Axis Range
-You can define the range for the x and y axes by providing an array of values for each axis. The available options for setting the range are:
+Define the range for the x and y axes by providing values for each axis. Available options:
  - `{xmin, xmax}` and `x` for the x-axes;
  - `{ymin, ymax}` and `y` for the y-axes;
  - `{xmin, xmax, ymin, ymax}` and `xy` for both axes;
-For example:
+Example:
 ``` cpp
 vector<double> extremes = {xmin, xmax};
 stampaGraph(graph, "destination.png", "Title", "X-axis", "Y-axis", "Option", "x", extremes);
 ```
 #### Add Lines
-You can define the coordinates of the line, the color and the width.
+Specify the coordinates, color, and width of the line:
 ```cpp
 vector<double> lineCoords = {x1, y1, x2, y2};
 stampaGraph(graph, "destination.png", "Title", "X-axis", "Y-axis", "Option", lineCoords, kRed, 2);
 ```
 #### Legends
-You can define the coordinates and the entries of the legend. You can define also the title and the legend's graphical options.
+Define the coordinates, entries, title, and graphical options for the legend:
 ```cpp
 vector<double> legendCoords = {x1, y1, x2, y2};
 vector<string> legendEntries = {"Dataset 1", "Dataset 2"};
 stampaGraph(graph, "destination.png", "Title", "X-axis", "Y-axis", "Option", legendCoords, "Legend Title", "Legend Option", legendEntries);
 ```
 #### Boxes
- You can define the coordinates and the entries of the box.
+Specify the coordinates and entries for the box:
 ```cpp
 vector<double> boxCoords = {x1, y1, x2, y2};
 vector<string> boxEntries = {"Box 1", "Box 2"};
@@ -101,22 +101,23 @@ template<typename T> T Min(const vector<T>& v);
 template<typename T> T Max(const vector<T>& v);
 ```
 #### ROOT Object Import
-It is usefull for import object, like `TF1`, `TH1`, ecc. from a ROOT file.
+Import object, like `TF1`, `TH1`, ecc. from a ROOT file.
 ```cpp
 template<typename T> T import_Tobject(const string& fileNameROOT, const string& ObjectName);
 ```
 #### Histogram Creation
+Create histograms from data vectors:
 ```cpp
 template<typename T, typename Q>
 T FillHist(vector<Q> data, int nbin, const string& histoName, bool Normalization = true);
 ```
-Here if `Normalization = true` the total area under the histogram will be 1.
+If `Normalization = true`, the total area under the histogram will be 1.
 #### Fit Handling
 ```cpp
 template<typename T>
 void fit(T* point, TF1* function, int n_parameters, const string& Option, int precision, double min = nan(double), double max = nan(double), bool covMat = true);
 ```
-Here `min`, `max` are the extremes of the fit, if they are `nan`, the fit is on the entire graph.
+Here `min`, `max` are the extremes of the fit, if they are `nan` the fit applies to the entire graph.
 ##### Example
 ```cpp
 #include "moraRoot.h"
@@ -134,6 +135,8 @@ int main() {
     stampaGraph(hist, "output.png", "Histogram", "X-axis", "Y-axis", "HIST");
 }
 ```
+
+
 
 ### Dependencies
  - ROOT Framework: This library requires ROOT classes such as:`TH1F, TF1, TGraph, TCanvas, TLegend, and others`. Ensure the ROOT framework is installed and configured.
