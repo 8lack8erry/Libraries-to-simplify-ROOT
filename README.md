@@ -30,81 +30,77 @@ This library offers tools to handle and visualize graphs in the ROOT framework. 
 stampaGraph(graph, "destination.png", "Title", "X-axis", "Y-axis", "Graphic Options", Additional Parameters...);
 ```
 ### Examples
- - Single or Multiple Graphs
+ - #### Single or Multiple Graphs
 ```cpp
 TGraph graph1;
 TGraphErrors graph2;
 stampaGraph(graph1, graph2, "destination.png", "Title", "X-axis", "Y-axis", {"Option1", "Option2"});
 ```
- - Log Scales
+ - #### Log Scales
 ```cpp
 stampaGraph(graph, "destination.png", "Title", "X-axis", "Y-axis", "Option", "x");
 ```
- - Set Axis Range
+ - #### Set Axis Range
 ``` cpp
 Copia codice
 vector<double> extremes = {xmin, xmax, ymin, ymax};
 stampaGraph(graph, "destination.png", "Title", "X-axis", "Y-axis", "Option", "x", extremes);
 ```
- - Add Lines
+ - #### Add Lines
 ```cpp
 vector<double> lineCoords = {x1, y1, x2, y2};
 stampaGraph(graph, "destination.png", "Title", "X-axis", "Y-axis", "Option", lineCoords, kRed, 2);
 ```
- - Legends
+ - #### Legends
 ```cpp
 vector<double> legendCoords = {x1, y1, x2, y2};
 vector<string> legendEntries = {"Dataset 1", "Dataset 2"};
 stampaGraph(graph, "destination.png", "Title", "X-axis", "Y-axis", "Option", legendCoords, "Legend Title", "TR", legendEntries);
 ```
- - Boxes
+ - #### Boxes
 ```cpp
 vector<double> boxCoords = {x1, y1, x2, y2};
 vector<string> boxEntries = {"Box 1", "Box 2"};
 stampaGraph(graph, "destination.png", "Title", "X-axis", "Y-axis", "Option", boxCoords, boxEntries);
 ```
- - Advanced Combination
+ - #### Advanced Combination
 ```cpp
 stampaGraph(graph, "destination.png", "Title", "X-axis", "Y-axis", "Option", "x", extremes, lineCoords, kRed, 2, legendCoords, "Legend Title", "TR", legendEntries);
 ```
 ## Utility Library: `moraRoot.h`
 ### Features
 This header file provides utility functions for:
- - Scientific Notation
+ - #### Scientific Notation
 ```cpp
 ScientificNotation Exponential(double n);
 ```
- - Mean Calculation
+ - #### Mean Calculation
 ```cpp
 double mean(vector<double> data);
 ```
- - Min/Max Calculation
+ - #### Min/Max Calculation
 ```cpp
 template<typename T> T Min(const vector<T>& v);
 template<typename T> T Max(const vector<T>& v);
 ```
- - ROOT Object Import
+ - #### ROOT Object Import
 ```cpp
 template<typename T> T import_Tobject(const string& fileNameROOT, const string& ObjectName);
 ```
- - Histogram Creation
+ - #### Histogram Creation
 ```cpp
 template<typename T, typename Q>
 T FillHist(vector<Q> data, int nbin, const string& histoName, bool Normalization = true);
 ```
- - Fit Handling
+ - #### Fit Handling
 ```cpp
 template<typename T>
 void fit(T* point, TF1* function, int n_parameters, const string& Option, int precision, double min = nan(double), double max = nan(double), bool covMat = true);
 ```
- - Best Fit Extremes
+ - #### Best Fit Extremes
 ```cpp
 pair<double, double> best_fit_extremes(TH1D h, double increments_sx, double increments_dx, pair<double, double> initial_extremes);
 ```
-
-### ROOT Dependencies
-This library requires ROOT classes such as:
-`TH1F, TF1, TGraph, TCanvas, TLegend, and others`. Ensure the ROOT framework is installed and configured.
 
 ### Example
 ```cpp
