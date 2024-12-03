@@ -102,13 +102,12 @@ void fit(T* point, TF1* function, int n_parameters, const string& Option, int pr
 pair<double, double> best_fit_extremes(TH1D h, double increments_sx, double increments_dx, pair<double, double> initial_extremes);
 ```
 
-ROOT Dependencies
+### ROOT Dependencies
 This library requires ROOT classes such as:
+`TH1F, TF1, TGraph, TCanvas, TLegend, and others`. Ensure the ROOT framework is installed and configured.
 
-TH1F, TF1, TGraph, TCanvas, TLegend, and others. Ensure the ROOT framework is installed and configured.
-Usage Example
-cpp
-Copia codice
+### Example
+```cpp
 #include "moraRoot.h"
 
 int main() {
@@ -123,8 +122,7 @@ int main() {
     // Plot the graph
     stampaGraph(hist, "output.png", "Histogram", "X-axis", "Y-axis", "HIST");
 }
-Dependencies
-ROOT Framework: Download and install from ROOT.
-C++ Standard Library: Required for vector, string, cmath, etc.
-License
-This library is free for academic and research purposes. For other uses, contact the author.
+```
+### Dependencies
+ - ROOT Framework: This library requires ROOT classes such as:`TH1F, TF1, TGraph, TCanvas, TLegend, and others`. Ensure the ROOT framework is installed and configured.
+ - C++ Standard Library: Required for vector, string, cmath, etc.
