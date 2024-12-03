@@ -30,28 +30,33 @@ This library offers tools to handle and visualize graphs in the ROOT framework. 
 stampaGraph(graph, "destination.png", "Title", "X-axis", "Y-axis", "Graphic Options", Additional Parameters...);
 ```
 ### Examples
- - #### Single or Multiple Graphs
+#### Single or Multiple Graphs
 ```cpp
 TGraph graph1;
 TGraphErrors graph2;
 stampaGraph(graph1, graph2, "destination.png", "Title", "X-axis", "Y-axis", {"Option1", "Option2"});
 ```
-Where `{"Option1", "Option2"}` are the graphic options for the graphs, for exaple `APL`. 
- - #### Log Scales
-You have to choose the axes in which you want the log scale the possible options are:
-    - `x` for the x-axes;
-    - `y` for the y-axes;
-    - `xy` for both;
+Here `{"Option1", "Option2"}` are the graphical options for the graphs, for exaple `APL`. 
+#### Log Scales
+You need to choose which axes should use a logarithmic scale. The available options are:
+ - `x` for the x-axis;
+ - `y` for the y-axis;
+ - `xy` for both axes;
 For example:
 ```cpp
 stampaGraph(graph, "destination.png", "Title", "X-axis", "Y-axis", "Option", "x");
 ```
- - #### Set Axis Range
+#### Set Axis Range
+You can define the range for the x and y axes by providing an array of values for each axis. The available options for setting the range are:
+ - `{xmin, xmax}` and `x` for the x-axes;
+ - `{ymin, ymax}` and `y` for the y-axes;
+ - `{xmin, xmax, ymin, ymax}` and `xy` for both axes;
+For example:
 ``` cpp
-vector<double> extremes = {xmin, xmax, ymin, ymax};
+vector<double> extremes = {xmin, xmax};
 stampaGraph(graph, "destination.png", "Title", "X-axis", "Y-axis", "Option", "x", extremes);
 ```
- - #### Add Lines
+#### Add Lines
 ```cpp
 vector<double> lineCoords = {x1, y1, x2, y2};
 stampaGraph(graph, "destination.png", "Title", "X-axis", "Y-axis", "Option", lineCoords, kRed, 2);
