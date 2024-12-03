@@ -152,6 +152,54 @@ int main() {
 }
 ```
 
+## Graph Plotting and Fitting Tool: `stampaGraph_Fit`
+### Features
+The `stampaGraph_Fit` function extends the functionality of the `stampaGraph` tool by integrating fitting capabilities with detailed graphical customization and automatic annotation. It simplifies the process of visualizing and analyzing fitted data in ROOT.
+
+### Key Functionalities
+#### Fitting:
+ - Fits a provided function (`TF1`) to the graph data.
+ - Supports optional fitting within a specified range (`min`,`max`).
+#### Annotation with Fit Results:
+Automatically computes and displays:
+ - Chi-squared and degrees of freedom (`/chi^{2}/ dof`).
+ - Fit parameters and their uncertainties.
+#### Customizable Annotations:
+Specify the position of annotation boxes using normalized device coordinates (NDC).
+Include descriptive entries for fit parameters.
+
+### General Syntax
+```cpp
+template<typename T>
+void stampaGraph_Fit(
+    T *point, 
+    TF1 *function,
+    const string & destinationPNG, 
+    const string & graphName,
+    const string & XaxisName,
+    const string & YaxisName,
+    const string & GraphicOption,
+    double min = nan(double), 
+    double max = nan(double),
+    int n_parameters = 0,
+    vector<double> PaveCoordinates = {nan(double)},
+    vector<string> PaveEntries = {}
+);
+```
+#### Parameters
+ - `T *point`: Pointer to the graph to be plotted.
+ - `TF1 *function`: The function to be fitted to the graph.
+ - `const string & destinationPNG`: Path and filename to save the output image.
+ - `const string & graphName`: Title of the graph.
+ - `const string & XaxisName`: Label for the x-axis.
+ - const string & YaxisName`: Label for the y-axis.
+const string & GraphicOption: ROOT graphical option string (e.g., "APL", "HIST").
+double min, double max: (Optional) Fit range. If nan, fits the entire graph.
+int n_parameters: Number of parameters in the fit function.
+vector<double> PaveCoordinates: Coordinates of the annotation box in NDC ({x1, y1, x2, y2}).
+vector<string> PaveEntries: Descriptive entries for the fit parameters.
+
+
 
 
 ### Dependencies
