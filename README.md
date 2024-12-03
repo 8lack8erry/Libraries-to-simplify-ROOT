@@ -88,6 +88,22 @@ stampaGraph(graph, "destination.png", "Title", "X-axis", "Y-axis", "Option", "x"
 ### Features
 This header file provides utility functions for:
 #### Scientific Notation
+The library provides a class called `ScientificNotation` to represent numbers in scientific notation format. The class takes two arguments: the base and the exponent.
+
+There is also a function named `Exponential` that converts a number into an object of the `ScientificNotation` class. This simplifies working with numbers in scientific notation.
+
+##### Class Definition:
+
+```cpp
+class ScientificNotation {
+public:
+    double base; // The base of the scientific notation
+    int exponent; // The exponent in the scientific notation
+
+    ScientificNotation(double base, int exponent) : base(base), exponent(exponent) {}
+};
+```
+##### Function:
 ```cpp
 ScientificNotation Exponential(double n);
 ```
