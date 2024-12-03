@@ -87,39 +87,37 @@ stampaGraph(graph, "destination.png", "Title", "X-axis", "Y-axis", "Option", "x"
 
 ### Features
 This header file provides utility functions for:
- - #### Scientific Notation
+#### Scientific Notation
 ```cpp
 ScientificNotation Exponential(double n);
 ```
- - #### Mean Calculation
+#### Mean Calculation
 ```cpp
 double mean(vector<double> data);
 ```
- - #### Min/Max Calculation
+#### Min/Max Calculation
 ```cpp
 template<typename T> T Min(const vector<T>& v);
 template<typename T> T Max(const vector<T>& v);
 ```
- - #### ROOT Object Import
+#### ROOT Object Import
+It is usefull for import object, like `TF1`, `TH1`, ecc. from a ROOT file.
 ```cpp
 template<typename T> T import_Tobject(const string& fileNameROOT, const string& ObjectName);
 ```
- - #### Histogram Creation
+#### Histogram Creation
 ```cpp
 template<typename T, typename Q>
 T FillHist(vector<Q> data, int nbin, const string& histoName, bool Normalization = true);
 ```
- - #### Fit Handling
+Here if `Normalization = true` the total area under the histogram will be 1.
+#### Fit Handling
 ```cpp
 template<typename T>
 void fit(T* point, TF1* function, int n_parameters, const string& Option, int precision, double min = nan(double), double max = nan(double), bool covMat = true);
 ```
- - #### Best Fit Extremes
-```cpp
-pair<double, double> best_fit_extremes(TH1D h, double increments_sx, double increments_dx, pair<double, double> initial_extremes);
-```
-
-### Example
+Here `min`, `max` are the extremes of the fit, if they are `nan`, the fit is on the entire graph.
+##### Example
 ```cpp
 #include "moraRoot.h"
 
@@ -136,6 +134,7 @@ int main() {
     stampaGraph(hist, "output.png", "Histogram", "X-axis", "Y-axis", "HIST");
 }
 ```
+
 ### Dependencies
  - ROOT Framework: This library requires ROOT classes such as:`TH1F, TF1, TGraph, TCanvas, TLegend, and others`. Ensure the ROOT framework is installed and configured.
  - C++ Standard Library: Required for vector, string, cmath, etc.
