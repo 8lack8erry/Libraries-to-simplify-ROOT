@@ -139,36 +139,6 @@ T FillHist(
     else    return h;
 };
 
-// da sistemare
-pair<double, double> best_fit_extremes( // {min, max}
-    TH1D h,
-    double increments_sx, 
-    double increments_dx, 
-    pair<double, double> initial_extremes
-)
-{
-    int bin_min = h.FindBin(initial_extremes.first);
-    int bin_max = h.FindBin(initial_extremes.second);
-
-    int max_bin = bin_min;
-    double max_content = h.GetBinContent(bin_min);
-
-    for (int bin = bin_min; bin <= bin_max; ++bin) {
-        double bin_content = h.GetBinContent(bin);
-        if (bin_content > max_content) {
-            max_content = bin_content;
-            max_bin = bin;
-        }
-    }
-
-    double binLowEdge = h.GetBinLowEdge(max_bin);
-    double binWidth = h.GetBinWidth(max_bin);
-    double binUpEdge = binLowEdge + binWidth;
-
-    pair<double, double> fit_extremes = {binLowEdge - increments_sx, binUpEdge + increments_dx};
-    return fit_extremes;
-};
-
 template<typename T>
 void fit(
     T *point,
@@ -197,67 +167,6 @@ void fit(
 	cout << "\nProbabilita':\t" <<fit_result->Prob() << "\t\t" << (fit_result -> Prob()) * 100 << "%\n\n";
 
 	if(covMat)    fit_result -> PrintCovMatrix(cout);
-};
-
-template<typename T>
-void stampaGraph_Fit(
-    T point, 
-    TF1 *function,
-    const string & destinationPNG, 
-    const string & graphName,
-    const string & XaxisName,
-    const string & YaxisName,
-    const string & GraphicOption,
-    double min = nan(double), 
-    double max = nan(double),
-    int n_parameters = 0,
-    vector<double> PaveCoordinates = {nan(double)},
-    vector<string> PaveEntries = {}
-)
-{
-    TCanvas c;
-
-    point.Draw(GraphicOption.c_str());
-	point.SetTitle(graphName.c_str());
-	point.GetXaxis() -> SetTitle(XaxisName.c_str());
-    point.GetYaxis() -> SetTitle(YaxisName.c_str());
-
-    TFitResultPtr fit_result;
-    if(isnan(min) && isnan(max))        fit_result = point -> Fit(function, "S");
-
-    else    fit_result = point -> Fit(function, "S", "", min, max);
- 
-    if(isnan(PaveCoordinates.at(0))) c.Print(destinationPNG.c_str(), "png");
-
-    else{
-        TPaveText* text_box = new TPaveText(PaveCoordinates.at(0), PaveCoordinates.at(1), PaveCoordinates.at(2), PaveCoordinates.at(3), "NDC");
-
-        ScientificNotation chi2 = Exponential(fit_result -> Chi2());
-        vector<ScientificNotation> par_error;
-        for(int i = 0; i < n_parameters; i++)   par_error.push_back(Exponential(function -> GetParError(i)));
-
-        text_box -> SetFillColor(0);
-        text_box -> SetTextAlign(12);
-        text_box -> AddText(Form("Fit result:"));
-
-        if(fabs(chi2.exp) < 3)    text_box -> AddText(Form("#chi^{2}/dof = %.3f/%d = %.3f", fit_result -> Chi2(), fit_result -> Ndf(), fit_result -> Chi2() / fit_result -> Ndf()));
-        else    text_box -> AddText(Form("#chi^{2}/dof = %.2f*10^{%d}/%d = %.2f * 10^{%d}", chi2.n, chi2.exp, fit_result -> Ndf(), Exponential(fit_result -> Chi2() / fit_result -> Ndf()).n, Exponential(fit_result -> Chi2() / fit_result->Ndf()).exp));
-        
-        for (int i = 0; i < n_parameters; i++) {
-            if (fabs(par_error.at(i).exp) < 3) {
-                text_box->AddText(Form((PaveEntries.at(i) + " = %.3f #pm %.3f").c_str(), function -> GetParameter(i), function -> GetParError(i)));
-            } 
-            else{
-                text_box->AddText(Form((PaveEntries.at(i) + " = (%.3f #pm %.3f) * 10^{%d}").c_str(), function -> GetParameter(i) * pow(10, -par_error.at(i).exp), par_error.at(i).n, par_error.at(i).exp));
-            }
-        }
-
-        text_box -> Draw();
-    
-        c.Print(destinationPNG.c_str(), "png");
-
-        delete(text_box);
-    }
 };
 
 template<typename T>
